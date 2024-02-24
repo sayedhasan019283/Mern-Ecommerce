@@ -6,12 +6,17 @@ import About from "../componentes/About/About"
 import Contact from "../componentes/Contact/Contact"
 import Policy from "../componentes/Policy/Policy"
 import PageNotFound from "../componentes/PageNotFound/PageNotFound"
+import Category from "../componentes/category/Category"
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <App></App>,
       children: [
+        {
+          path: "/category",
+          element: <Category/>
+        },
         {
           path: "/about",
           element: <About/>
