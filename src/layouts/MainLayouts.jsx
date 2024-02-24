@@ -1,13 +1,12 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "../Shared/Navbar/Navbar";
+import Footer from "../Shared/Footer/Footer";
 
 export default function MainLayouts() {
   return (
     <div>
         <Navbar/>
-        <div style={{minHeight: '92vh'}}> 
-            <p>This is outlet</p>
+        <div > 
             <Outlet/>
         </div>
         <Footer/>
