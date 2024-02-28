@@ -1,7 +1,25 @@
 import { NavLink } from "react-router-dom";
 import { FaShop } from "react-icons/fa6";
 import './Navbar.css'
+import { useAuth } from "../../context/Auth";
+import { toast } from 'react-toastify';
+
 export default function Navbar() {
+  
+  const [auth, setAuth] = useAuth();
+  const handleLogout = () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+    toast.success("Successfully logout");
+  };
+
+
+
+
   return (
     
     <div>
@@ -12,16 +30,26 @@ export default function Navbar() {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </div>
           </div>
-          <NavLink to="/" className="btn btn-ghost text-xl"> <FaShop /> E-commerce</NavLink>
+          <NavLink to="/home" className="btn btn-ghost text-xl"> <FaShop /> E-commerce</NavLink>
         </div>
         <div className="form-control">
           <input type="text" placeholder="Search" className="input input-bordered w-28 md:w-auto" />
         </div>
         <div className="mr-4 navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1"> 
-            <li className="mr-4 link link-hover"><NavLink to="/category" className="text-base-content">CATEGORY</NavLink></li>
-            <li className=" mr-4 link link-hover"><NavLink to="/register" className="text-base-content bg-base-200">REGISTER</NavLink></li>
+            <li className="mr-4 link link-hover"><NavLink to="/dashboard" className="text-base-content">CATEGORY</NavLink></li>
+            {
+              !auth?.user ? (
+                <>
+                <li className=" mr-4 link link-hover"><NavLink to="/register" className="text-base-content bg-base-200">REGISTER</NavLink></li>
             <li className="mr-4 link link-hover"><NavLink to="/login" className="text-base-content">LOGIN</NavLink></li>
+                </>
+              ) : (
+                <>
+                 <li onClick={handleLogout} className="mr-4 link link-hover"><NavLink to="/login" className="text-base-content">LOGOUT</NavLink></li>
+                </>
+              )
+            }
           </ul>
         </div>
         <div className="mr-4">
