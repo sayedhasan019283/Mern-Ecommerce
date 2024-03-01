@@ -12,6 +12,7 @@ import Login from "../componentes/Login/Login"
 import HomePage from "../componentes/HomePage/HomePage"
 import Dashboard from "../componentes/Dashboard/Dashboard"
 import PrivateRoute from "../componentes/PrivetRoute/PriverRoute"
+import Order from "../componentes/Order/Order"
 
 const router = createBrowserRouter([
     {
@@ -49,16 +50,23 @@ const router = createBrowserRouter([
       ]
     },
     {
-      path: "*",
-      element: <PageNotFound/>
-    },
-    {
       path: "/dashboard",
       element:
       <PrivateRoute>
       <Dashboard/> 
       </PrivateRoute>,
-    }
+      children: [
+        {
+          path:"/dashboard/order",
+          element: <Order/>
+        }
+      ]
+    },
+    {
+      path: "*",
+      element: <PageNotFound/>
+    },
+    
 
 
   ])
