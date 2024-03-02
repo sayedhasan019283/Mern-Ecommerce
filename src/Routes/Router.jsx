@@ -13,6 +13,7 @@ import HomePage from "../componentes/HomePage/HomePage"
 import Dashboard from "../componentes/Dashboard/Dashboard"
 import PrivateRoute from "../componentes/PrivetRoute/PriverRoute"
 import Order from "../componentes/Order/Order"
+import ForgetPassword from "../componentes/ForgetPassword/ForgetPassword"
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         {
           path: "/login",
           element: <Login/>
+        },
+        {
+          path: "/forget-password",
+          element: <ForgetPassword/>
         },
         {
           path: "/about",

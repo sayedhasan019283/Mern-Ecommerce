@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { toast } from 'react-toastify';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, NavLink } from "react-router-dom";
 import { useAuth } from "../../context/Auth";
 
 const Login = () => {
@@ -54,6 +54,7 @@ const Login = () => {
                    onChange={(e) => setPassword(e.target.value)} 
                    placeholder="Password" />
                </label>
+               <p className="text-blue-500"><NavLink to="/forget-password"> Forget Password</NavLink></p>
                 <div className="flex justify-center mb-4">
                     <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Login</button>
                 </div>
