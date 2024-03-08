@@ -14,6 +14,9 @@ import Dashboard from "../componentes/Dashboard/Dashboard"
 import PrivateRoute from "../componentes/PrivetRoute/PriverRoute"
 import Order from "../componentes/Order/Order"
 import ForgetPassword from "../componentes/ForgetPassword/ForgetPassword"
+import OrderManagment from "../componentes/OrderManagment/OrderManagment"
+import DashBoardPrivetRoute from "../componentes/DashBoardPrivetRoute/DashBoardPrivetRoute"
+import AdminDashboard from "../componentes/AdminDashboard/AdminDashboard"
 
 const router = createBrowserRouter([
     {
@@ -55,16 +58,29 @@ const router = createBrowserRouter([
       ]
     },
     {
-      path: "/dashboard",
+      path: "/dashboard/admin",
+      element:
+      <DashBoardPrivetRoute>
+      <AdminDashboard/> 
+      </DashBoardPrivetRoute>,
+      children: [
+        {
+          path:"/dashboard/admin/order",
+          element: <OrderManagment/>
+        },
+      ]
+    },
+    {
+      path: "/dashboard/user",
       element:
       <PrivateRoute>
       <Dashboard/> 
       </PrivateRoute>,
       children: [
         {
-          path:"/dashboard/order",
+          path:"/dashboard/user/order",
           element: <Order/>
-        }
+        },
       ]
     },
     {
