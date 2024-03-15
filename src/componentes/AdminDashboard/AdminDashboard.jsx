@@ -20,7 +20,12 @@ const AdminDashboard = () => {
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 min-h-full bg-base-200 text-base-content">
                         {/* Sidebar content here */}
-                        <li><NavLink to="/dashboard/admin/order">admin</NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard/admin/order">admin</NavLink>
+                        </li>
+                        <li className="mt-4">
+                            <NavLink to="/dashboard/admin/add-product">Add Product</NavLink>
+                        </li>
                     </ul>
                 </div>
             </div>

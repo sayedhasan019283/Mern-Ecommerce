@@ -17,6 +17,7 @@ import ForgetPassword from "../componentes/ForgetPassword/ForgetPassword"
 import OrderManagment from "../componentes/OrderManagment/OrderManagment"
 import DashBoardPrivetRoute from "../componentes/DashBoardPrivetRoute/DashBoardPrivetRoute"
 import AdminDashboard from "../componentes/AdminDashboard/AdminDashboard"
+import CreateProductForm from "../componentes/CreateProductForm/CreateProductForm"
 
 const router = createBrowserRouter([
     {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
         {
           path:"/dashboard/admin/order",
           element: <OrderManagment/>
+        },
+        {
+          path:"/dashboard/admin/add-product",
+          element: <CreateProductForm/>
         },
       ]
     },
