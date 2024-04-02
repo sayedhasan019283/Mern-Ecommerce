@@ -1,5 +1,7 @@
 import  { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const CreateProductForm = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +12,7 @@ const CreateProductForm = () => {
     quantity: '',
     photo: null
   });
-
+  const navigate = useNavigate();
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -39,6 +41,7 @@ const CreateProductForm = () => {
         }
       });
       console.log('Product created successfully:', response.data.product);
+      navigate('/home')
     } catch (error) {
       console.error('Error creating product:', error);
     }

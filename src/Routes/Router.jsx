@@ -18,6 +18,8 @@ import OrderManagment from "../componentes/OrderManagment/OrderManagment"
 import DashBoardPrivetRoute from "../componentes/DashBoardPrivetRoute/DashBoardPrivetRoute"
 import AdminDashboard from "../componentes/AdminDashboard/AdminDashboard"
 import CreateProductForm from "../componentes/CreateProductForm/CreateProductForm"
+import UpdatePage from "../componentes/UpdatePage/UpdatePage"
+import SearchResult from "../componentes/SearchResult/SearchResult"
 
 const router = createBrowserRouter([
     {
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
         {
           path: "/home",
           element: <HomePage/>
+        },
+        {
+          path: "/search/:keyword",
+          element: <SearchResult/>
         },
         {
           path: "/register",
@@ -88,6 +94,11 @@ const router = createBrowserRouter([
         },
       ]
     },
+    {
+      path: "/:id",
+      element: <UpdatePage/>
+    },
+
     {
       path: "*",
       element: <PageNotFound/>
